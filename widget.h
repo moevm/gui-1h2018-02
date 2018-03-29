@@ -6,6 +6,7 @@
 #include <QStandardItemModel>
 #include <QMediaPlayer>
 #include <QMediaPlaylist>
+#include <QFile>
 
 namespace Ui {
 class Widget;
@@ -17,12 +18,14 @@ class Widget : public QWidget
 
 public:
     explicit Widget(QWidget *parent = 0);
+    void Player();
     ~Widget();
 
 private slots:
     void on_btn_add_clicked();              // Слот для обработки добавления треков через диалоговое окно
 
 private:
+    QFile PlayList;
     Ui::Widget *ui;
     QStandardItemModel  *m_playListModel;   // Модель данных плейлиста для отображения
     QMediaPlayer        *m_player;          // Проигрыватель треков
