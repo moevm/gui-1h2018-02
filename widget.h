@@ -12,7 +12,7 @@
 #include "QSqlDatabase"
 #include "QSqlQuery"
 /* Подключаем заголовочный файл для работы с информацией, которая помещена в базу данных */
-#include "database.h"
+
 
 namespace Ui {
 class Widget;
