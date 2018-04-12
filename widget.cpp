@@ -76,12 +76,8 @@ void Widget:: Delete_one(){
 
      query.prepare("delete from List where name=:names;");
      query.bindValue(":names", names );
-     //names=query.exec();
-     while (query.next())
-        {
-         qDebug()<<query.first();
-         }
-     qDebug()<< query.exec();
+     query.exec();
+     
      sdb.close();
       m_playListModel->clear();
       ui->playlistView->model()->removeRow(row);
