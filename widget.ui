@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>793</width>
-    <height>720</height>
+    <width>778</width>
+    <height>647</height>
    </rect>
   </property>
   <property name="mouseTracking">
@@ -41,219 +41,231 @@
   <property name="styleSheet">
    <string notr="true"/>
   </property>
-  <widget class="QToolButton" name="btn_add">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>30</y>
-     <width>51</width>
-     <height>51</height>
+     <x>480</x>
+     <y>300</y>
+     <width>261</width>
+     <height>271</height>
     </rect>
    </property>
-   <property name="text">
-    <string>...</string>
-   </property>
-   <property name="icon">
-    <iconset resource="buttons.qrc">
-     <normaloff>:/butten_plus.png</normaloff>:/butten_plus.png</iconset>
-   </property>
-   <property name="iconSize">
-    <size>
-     <width>35</width>
-     <height>35</height>
-    </size>
-   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QListWidget" name="listWidget"/>
+    </item>
+    <item>
+     <widget class="QPushButton" name="SetNumberPlaylist">
+      <property name="text">
+       <string>Выбрать плейлист</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="delete_playlist">
+      <property name="text">
+       <string>Удалить плейлист</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
-  <widget class="QToolButton" name="btn_previous">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>30</y>
-     <width>51</width>
-     <height>51</height>
+     <x>40</x>
+     <y>130</y>
+     <width>401</width>
+     <height>471</height>
     </rect>
    </property>
-   <property name="text">
-    <string>...</string>
-   </property>
-   <property name="icon">
-    <iconset resource="buttons.qrc">
-     <normaloff>:/butten3.jpg</normaloff>:/butten3.jpg</iconset>
-   </property>
-   <property name="iconSize">
-    <size>
-     <width>45</width>
-     <height>45</height>
-    </size>
-   </property>
-  </widget>
-  <widget class="QToolButton" name="btn_stop">
-   <property name="geometry">
-    <rect>
-     <x>160</x>
-     <y>30</y>
-     <width>51</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>...</string>
-   </property>
-   <property name="icon">
-    <iconset resource="buttons.qrc">
-     <normaloff>:/butten2.jpg</normaloff>:/butten2.jpg</iconset>
-   </property>
-   <property name="iconSize">
-    <size>
-     <width>45</width>
-     <height>48</height>
-    </size>
-   </property>
-  </widget>
-  <widget class="QToolButton" name="btn_play">
-   <property name="geometry">
-    <rect>
-     <x>220</x>
-     <y>30</y>
-     <width>51</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>...</string>
-   </property>
-   <property name="icon">
-    <iconset resource="buttons.qrc">
-     <normaloff>:/butten1.jpg</normaloff>:/butten1.jpg</iconset>
-   </property>
-   <property name="iconSize">
-    <size>
-     <width>45</width>
-     <height>48</height>
-    </size>
-   </property>
-  </widget>
-  <widget class="QToolButton" name="btn_pause">
-   <property name="geometry">
-    <rect>
-     <x>280</x>
-     <y>30</y>
-     <width>51</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>...</string>
-   </property>
-   <property name="icon">
-    <iconset resource="buttons.qrc">
-     <normaloff>:/butten5.jpg</normaloff>:/butten5.jpg</iconset>
-   </property>
-   <property name="iconSize">
-    <size>
-     <width>45</width>
-     <height>45</height>
-    </size>
-   </property>
-  </widget>
-  <widget class="QToolButton" name="btn_next">
-   <property name="geometry">
-    <rect>
-     <x>340</x>
-     <y>30</y>
-     <width>51</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>...</string>
-   </property>
-   <property name="icon">
-    <iconset resource="buttons.qrc">
-     <normaloff>:/butten4.jpg</normaloff>:/butten4.jpg</iconset>
-   </property>
-   <property name="iconSize">
-    <size>
-     <width>45</width>
-     <height>45</height>
-    </size>
-   </property>
-  </widget>
-  <widget class="QTableView" name="playlistView">
-   <property name="enabled">
-    <bool>true</bool>
-   </property>
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>180</y>
-     <width>481</width>
-     <height>521</height>
-    </rect>
-   </property>
-   <property name="mouseTracking">
-    <bool>false</bool>
-   </property>
-   <property name="tabletTracking">
-    <bool>false</bool>
-   </property>
-   <property name="acceptDrops">
-    <bool>false</bool>
-   </property>
-   <property name="toolTipDuration">
-    <number>-1</number>
-   </property>
-   <property name="layoutDirection">
-    <enum>Qt::LeftToRight</enum>
-   </property>
-   <property name="autoFillBackground">
-    <bool>false</bool>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">font: italic 14pt &quot;Vivaldi&quot;;
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <widget class="QTableView" name="playlistView">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="mouseTracking">
+       <bool>false</bool>
+      </property>
+      <property name="tabletTracking">
+       <bool>false</bool>
+      </property>
+      <property name="acceptDrops">
+       <bool>false</bool>
+      </property>
+      <property name="toolTipDuration">
+       <number>-1</number>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: italic 14pt &quot;Vivaldi&quot;;
 </string>
-   </property>
-   <property name="autoScroll">
-    <bool>true</bool>
-   </property>
-   <property name="showDropIndicator" stdset="0">
-    <bool>true</bool>
-   </property>
-   <property name="showGrid">
-    <bool>true</bool>
-   </property>
-   <property name="wordWrap">
-    <bool>true</bool>
-   </property>
+      </property>
+      <property name="autoScroll">
+       <bool>true</bool>
+      </property>
+      <property name="showDropIndicator" stdset="0">
+       <bool>true</bool>
+      </property>
+      <property name="showGrid">
+       <bool>true</bool>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QToolButton" name="btn_previous">
+        <property name="text">
+         <string>...</string>
+        </property>
+        <property name="icon">
+         <iconset resource="buttons.qrc">
+          <normaloff>:/butten3.jpg</normaloff>:/butten3.jpg</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>45</width>
+          <height>45</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QToolButton" name="btn_stop">
+        <property name="text">
+         <string>...</string>
+        </property>
+        <property name="icon">
+         <iconset resource="buttons.qrc">
+          <normaloff>:/butten2.jpg</normaloff>:/butten2.jpg</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>45</width>
+          <height>48</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QToolButton" name="btn_play">
+        <property name="text">
+         <string>...</string>
+        </property>
+        <property name="icon">
+         <iconset resource="buttons.qrc">
+          <normaloff>:/butten1.jpg</normaloff>:/butten1.jpg</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>45</width>
+          <height>48</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QToolButton" name="btn_pause">
+        <property name="text">
+         <string>...</string>
+        </property>
+        <property name="icon">
+         <iconset resource="buttons.qrc">
+          <normaloff>:/butten5.jpg</normaloff>:/butten5.jpg</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>45</width>
+          <height>45</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QToolButton" name="btn_next">
+        <property name="text">
+         <string>...</string>
+        </property>
+        <property name="icon">
+         <iconset resource="buttons.qrc">
+          <normaloff>:/butten4.jpg</normaloff>:/butten4.jpg</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>45</width>
+          <height>45</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
   </widget>
-  <widget class="QTableView" name="tableView">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>520</x>
-     <y>160</y>
-     <width>256</width>
-     <height>211</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QTableView" name="tableView_2">
-   <property name="geometry">
-    <rect>
-     <x>520</x>
-     <y>390</y>
-     <width>256</width>
-     <height>281</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QTextEdit" name="textEdit">
-   <property name="geometry">
-    <rect>
-     <x>540</x>
-     <y>200</y>
+     <x>510</x>
+     <y>140</y>
      <width>211</width>
-     <height>61</height>
+     <height>51</height>
     </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <item>
+     <widget class="QToolButton" name="btn_add">
+      <property name="text">
+       <string>.</string>
+      </property>
+      <property name="icon">
+       <iconset resource="buttons.qrc">
+        <normaloff>:/butten_plus.png</normaloff>:/butten_plus.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>35</width>
+        <height>35</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt;Добавить аудиозапись&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QPushButton" name="NewPlayList">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>220</y>
+     <width>211</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <italic>true</italic>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Создать новый плейлист</string>
    </property>
   </widget>
  </widget>

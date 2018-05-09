@@ -13,7 +13,6 @@
 #include "QSqlQuery"
 /* Подключаем заголовочный файл для работы с информацией, которая помещена в базу данных */
 
-
 namespace Ui {
 class Widget;
 }
@@ -24,7 +23,7 @@ class Widget : public QWidget
 
 public:
     explicit Widget(QWidget *parent = 0);
-    void Player();
+    void Player(int number);
     void Init();
 
     ~Widget();
@@ -32,6 +31,23 @@ public:
 private slots:
     void on_btn_add_clicked();              // Слот для обработки добавления треков через диалоговое окно
     void Delete_one();
+
+
+
+
+    void on_NewPlayList_clicked();
+
+    void on_SetNumberPlaylist_clicked();
+
+    void on_btn_next_clicked();
+
+    void on_btn_previous_clicked();
+
+    void on_delete_playlist_clicked();
+
+    void on_listWidget_clicked(const QModelIndex &index);
+
+
 private:
 
     QFile PlayList;
@@ -40,6 +56,7 @@ private:
     QMediaPlayer        *m_player;          // Проигрыватель треков
     QMediaPlaylist      *m_playlist;        // Плейлиста проигрывателя
     QSqlDatabase sdb;
+    int numberList=0;
 
 protected:
   void paintEvent(QPaintEvent*) {

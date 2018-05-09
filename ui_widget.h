@@ -13,10 +13,14 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QListWidget>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QTableView>
-#include <QtWidgets/QTextEdit>
 #include <QtWidgets/QToolButton>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -24,23 +28,32 @@ QT_BEGIN_NAMESPACE
 class Ui_Widget
 {
 public:
-    QToolButton *btn_add;
+    QWidget *layoutWidget;
+    QVBoxLayout *verticalLayout;
+    QListWidget *listWidget;
+    QPushButton *SetNumberPlaylist;
+    QPushButton *delete_playlist;
+    QWidget *layoutWidget1;
+    QVBoxLayout *verticalLayout_2;
+    QTableView *playlistView;
+    QHBoxLayout *horizontalLayout;
     QToolButton *btn_previous;
     QToolButton *btn_stop;
     QToolButton *btn_play;
     QToolButton *btn_pause;
     QToolButton *btn_next;
-    QTableView *playlistView;
-    QTableView *tableView;
-    QTableView *tableView_2;
-    QTextEdit *textEdit;
+    QWidget *layoutWidget2;
+    QHBoxLayout *horizontalLayout_2;
+    QToolButton *btn_add;
+    QLabel *label;
+    QPushButton *NewPlayList;
 
     void setupUi(QWidget *Widget)
     {
         if (Widget->objectName().isEmpty())
             Widget->setObjectName(QStringLiteral("Widget"));
         Widget->setEnabled(true);
-        Widget->resize(793, 720);
+        Widget->resize(778, 647);
         Widget->setMouseTracking(false);
         Widget->setTabletTracking(false);
         Widget->setAcceptDrops(false);
@@ -49,52 +62,36 @@ public:
         Widget->setWindowIcon(icon);
         Widget->setToolTipDuration(-1);
         Widget->setStyleSheet(QStringLiteral(""));
-        btn_add = new QToolButton(Widget);
-        btn_add->setObjectName(QStringLiteral("btn_add"));
-        btn_add->setGeometry(QRect(20, 30, 51, 51));
-        QIcon icon1;
-        icon1.addFile(QStringLiteral(":/butten_plus.png"), QSize(), QIcon::Normal, QIcon::Off);
-        btn_add->setIcon(icon1);
-        btn_add->setIconSize(QSize(35, 35));
-        btn_previous = new QToolButton(Widget);
-        btn_previous->setObjectName(QStringLiteral("btn_previous"));
-        btn_previous->setGeometry(QRect(100, 30, 51, 51));
-        QIcon icon2;
-        icon2.addFile(QStringLiteral(":/butten3.jpg"), QSize(), QIcon::Normal, QIcon::Off);
-        btn_previous->setIcon(icon2);
-        btn_previous->setIconSize(QSize(45, 45));
-        btn_stop = new QToolButton(Widget);
-        btn_stop->setObjectName(QStringLiteral("btn_stop"));
-        btn_stop->setGeometry(QRect(160, 30, 51, 51));
-        QIcon icon3;
-        icon3.addFile(QStringLiteral(":/butten2.jpg"), QSize(), QIcon::Normal, QIcon::Off);
-        btn_stop->setIcon(icon3);
-        btn_stop->setIconSize(QSize(45, 48));
-        btn_play = new QToolButton(Widget);
-        btn_play->setObjectName(QStringLiteral("btn_play"));
-        btn_play->setGeometry(QRect(220, 30, 51, 51));
-        QIcon icon4;
-        icon4.addFile(QStringLiteral(":/butten1.jpg"), QSize(), QIcon::Normal, QIcon::Off);
-        btn_play->setIcon(icon4);
-        btn_play->setIconSize(QSize(45, 48));
-        btn_pause = new QToolButton(Widget);
-        btn_pause->setObjectName(QStringLiteral("btn_pause"));
-        btn_pause->setGeometry(QRect(280, 30, 51, 51));
-        QIcon icon5;
-        icon5.addFile(QStringLiteral(":/butten5.jpg"), QSize(), QIcon::Normal, QIcon::Off);
-        btn_pause->setIcon(icon5);
-        btn_pause->setIconSize(QSize(45, 45));
-        btn_next = new QToolButton(Widget);
-        btn_next->setObjectName(QStringLiteral("btn_next"));
-        btn_next->setGeometry(QRect(340, 30, 51, 51));
-        QIcon icon6;
-        icon6.addFile(QStringLiteral(":/butten4.jpg"), QSize(), QIcon::Normal, QIcon::Off);
-        btn_next->setIcon(icon6);
-        btn_next->setIconSize(QSize(45, 45));
-        playlistView = new QTableView(Widget);
+        layoutWidget = new QWidget(Widget);
+        layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
+        layoutWidget->setGeometry(QRect(480, 300, 261, 271));
+        verticalLayout = new QVBoxLayout(layoutWidget);
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        listWidget = new QListWidget(layoutWidget);
+        listWidget->setObjectName(QStringLiteral("listWidget"));
+
+        verticalLayout->addWidget(listWidget);
+
+        SetNumberPlaylist = new QPushButton(layoutWidget);
+        SetNumberPlaylist->setObjectName(QStringLiteral("SetNumberPlaylist"));
+
+        verticalLayout->addWidget(SetNumberPlaylist);
+
+        delete_playlist = new QPushButton(layoutWidget);
+        delete_playlist->setObjectName(QStringLiteral("delete_playlist"));
+
+        verticalLayout->addWidget(delete_playlist);
+
+        layoutWidget1 = new QWidget(Widget);
+        layoutWidget1->setObjectName(QStringLiteral("layoutWidget1"));
+        layoutWidget1->setGeometry(QRect(40, 130, 401, 471));
+        verticalLayout_2 = new QVBoxLayout(layoutWidget1);
+        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+        verticalLayout_2->setContentsMargins(0, 0, 0, 0);
+        playlistView = new QTableView(layoutWidget1);
         playlistView->setObjectName(QStringLiteral("playlistView"));
         playlistView->setEnabled(true);
-        playlistView->setGeometry(QRect(20, 180, 481, 521));
         playlistView->setMouseTracking(false);
         playlistView->setTabletTracking(false);
         playlistView->setAcceptDrops(false);
@@ -107,15 +104,87 @@ public:
         playlistView->setProperty("showDropIndicator", QVariant(true));
         playlistView->setShowGrid(true);
         playlistView->setWordWrap(true);
-        tableView = new QTableView(Widget);
-        tableView->setObjectName(QStringLiteral("tableView"));
-        tableView->setGeometry(QRect(520, 160, 256, 211));
-        tableView_2 = new QTableView(Widget);
-        tableView_2->setObjectName(QStringLiteral("tableView_2"));
-        tableView_2->setGeometry(QRect(520, 390, 256, 281));
-        textEdit = new QTextEdit(Widget);
-        textEdit->setObjectName(QStringLiteral("textEdit"));
-        textEdit->setGeometry(QRect(540, 200, 211, 61));
+
+        verticalLayout_2->addWidget(playlistView);
+
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        btn_previous = new QToolButton(layoutWidget1);
+        btn_previous->setObjectName(QStringLiteral("btn_previous"));
+        QIcon icon1;
+        icon1.addFile(QStringLiteral(":/butten3.jpg"), QSize(), QIcon::Normal, QIcon::Off);
+        btn_previous->setIcon(icon1);
+        btn_previous->setIconSize(QSize(45, 45));
+
+        horizontalLayout->addWidget(btn_previous);
+
+        btn_stop = new QToolButton(layoutWidget1);
+        btn_stop->setObjectName(QStringLiteral("btn_stop"));
+        QIcon icon2;
+        icon2.addFile(QStringLiteral(":/butten2.jpg"), QSize(), QIcon::Normal, QIcon::Off);
+        btn_stop->setIcon(icon2);
+        btn_stop->setIconSize(QSize(45, 48));
+
+        horizontalLayout->addWidget(btn_stop);
+
+        btn_play = new QToolButton(layoutWidget1);
+        btn_play->setObjectName(QStringLiteral("btn_play"));
+        QIcon icon3;
+        icon3.addFile(QStringLiteral(":/butten1.jpg"), QSize(), QIcon::Normal, QIcon::Off);
+        btn_play->setIcon(icon3);
+        btn_play->setIconSize(QSize(45, 48));
+
+        horizontalLayout->addWidget(btn_play);
+
+        btn_pause = new QToolButton(layoutWidget1);
+        btn_pause->setObjectName(QStringLiteral("btn_pause"));
+        QIcon icon4;
+        icon4.addFile(QStringLiteral(":/butten5.jpg"), QSize(), QIcon::Normal, QIcon::Off);
+        btn_pause->setIcon(icon4);
+        btn_pause->setIconSize(QSize(45, 45));
+
+        horizontalLayout->addWidget(btn_pause);
+
+        btn_next = new QToolButton(layoutWidget1);
+        btn_next->setObjectName(QStringLiteral("btn_next"));
+        QIcon icon5;
+        icon5.addFile(QStringLiteral(":/butten4.jpg"), QSize(), QIcon::Normal, QIcon::Off);
+        btn_next->setIcon(icon5);
+        btn_next->setIconSize(QSize(45, 45));
+
+        horizontalLayout->addWidget(btn_next);
+
+
+        verticalLayout_2->addLayout(horizontalLayout);
+
+        layoutWidget2 = new QWidget(Widget);
+        layoutWidget2->setObjectName(QStringLiteral("layoutWidget2"));
+        layoutWidget2->setGeometry(QRect(510, 140, 211, 51));
+        horizontalLayout_2 = new QHBoxLayout(layoutWidget2);
+        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+        horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
+        btn_add = new QToolButton(layoutWidget2);
+        btn_add->setObjectName(QStringLiteral("btn_add"));
+        QIcon icon6;
+        icon6.addFile(QStringLiteral(":/butten_plus.png"), QSize(), QIcon::Normal, QIcon::Off);
+        btn_add->setIcon(icon6);
+        btn_add->setIconSize(QSize(35, 35));
+
+        horizontalLayout_2->addWidget(btn_add);
+
+        label = new QLabel(layoutWidget2);
+        label->setObjectName(QStringLiteral("label"));
+
+        horizontalLayout_2->addWidget(label);
+
+        NewPlayList = new QPushButton(Widget);
+        NewPlayList->setObjectName(QStringLiteral("NewPlayList"));
+        NewPlayList->setGeometry(QRect(510, 220, 211, 51));
+        QFont font;
+        font.setBold(true);
+        font.setItalic(true);
+        font.setWeight(75);
+        NewPlayList->setFont(font);
 
         retranslateUi(Widget);
 
@@ -131,12 +200,16 @@ public:
 #ifndef QT_NO_WHATSTHIS
         Widget->setWhatsThis(QString());
 #endif // QT_NO_WHATSTHIS
-        btn_add->setText(QApplication::translate("Widget", "...", nullptr));
+        SetNumberPlaylist->setText(QApplication::translate("Widget", "\320\222\321\213\320\261\321\200\320\260\321\202\321\214 \320\277\320\273\320\265\320\271\320\273\320\270\321\201\321\202", nullptr));
+        delete_playlist->setText(QApplication::translate("Widget", "\320\243\320\264\320\260\320\273\320\270\321\202\321\214 \320\277\320\273\320\265\320\271\320\273\320\270\321\201\321\202", nullptr));
         btn_previous->setText(QApplication::translate("Widget", "...", nullptr));
         btn_stop->setText(QApplication::translate("Widget", "...", nullptr));
         btn_play->setText(QApplication::translate("Widget", "...", nullptr));
         btn_pause->setText(QApplication::translate("Widget", "...", nullptr));
         btn_next->setText(QApplication::translate("Widget", "...", nullptr));
+        btn_add->setText(QApplication::translate("Widget", ".", nullptr));
+        label->setText(QApplication::translate("Widget", "<html><head/><body><p align=\"center\"><span style=\" font-weight:600; font-style:italic;\">\320\224\320\276\320\261\320\260\320\262\320\270\321\202\321\214 \320\260\321\203\320\264\320\270\320\276\320\267\320\260\320\277\320\270\321\201\321\214</span></p></body></html>", nullptr));
+        NewPlayList->setText(QApplication::translate("Widget", "\320\241\320\276\320\267\320\264\320\260\321\202\321\214 \320\275\320\276\320\262\321\213\320\271 \320\277\320\273\320\265\320\271\320\273\320\270\321\201\321\202", nullptr));
     } // retranslateUi
 
 };

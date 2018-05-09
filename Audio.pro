@@ -18,12 +18,15 @@ TEMPLATE = app
 
 SOURCES +=\
         widget.cpp \
-    main.cpp 
+    main.cpp \
+    nameplaylist.cpp
 
-HEADERS  += widget.h 
+HEADERS  += widget.h \
+    nameplaylist.h
 
 FORMS    += widget.ui \
-    widget.ui
+    widget.ui \
+    nameplaylist.ui
 
 RESOURCES += \
     buttons.qrc
