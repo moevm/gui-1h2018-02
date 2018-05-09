@@ -27,22 +27,7 @@ Widget::Widget(QWidget *parent) :
    m_playListModel = new QStandardItemModel(this);
    m_player = new QMediaPlayer(this);          // Инициализируем плеер
    m_playlist = new QMediaPlaylist(m_player);  // Инициализируем плейлист
-   if(!sdb.open()) qDebug() << sdb.lastError().text();
-
-     QSqlQuery query= QSqlQuery (sdb);
-   //пересичляем существующие плейлисты
-   query.prepare("select * from NameList");
-   if (!query.exec()) {
-          qDebug() << query.lastError().databaseText();
-          qDebug() << query.lastError().driverText();
-     }
-      while (query.next())
-         {
-          //query.record(2)
-           ui->listWidget->addItem(query.value(1).toString());//плейлист по умолчанию
-      }
-     sdb.close();
-
+ 
    Init();
    Player(numberList);
 
@@ -241,41 +226,6 @@ void Widget::on_btn_previous_clicked()
     m_playlist->previous();
     ui->playlistView->selectRow( m_playlist->currentIndex());
     ui->playlistView->setSelectionBehavior(QAbstractItemView::SelectRows);
-}
-
-void Widget::on_delete_playlist_clicked()
-{
-    ui->delete_playlist->setEnabled(false);
-    int numderDelet = ui->listWidget->currentIndex().row();
-    if(numderDelet!=0){
-    numberList=0;
-    if(!sdb.open()) qDebug() << sdb.lastError().text();
-
-     QSqlQuery query= QSqlQuery (sdb);
-
-     query.prepare("delete from List where idPlayer=:idPlay;");
-     query.bindValue(":idPlay", numderDelet );
-
-     while (query.next())
-        {
-         qDebug()<<query.first();
-         }
-      query.exec();
-     query.prepare("delete from NameList where idlist=:idPlay;");
-     query.bindValue(":idPlay", numderDelet );
-
-     while (query.next())
-        {
-         qDebug()<<query.first();
-         }
-      query.exec();
-     delete ui->listWidget->takeItem(ui->listWidget->row(ui->listWidget->currentItem()));
-     sdb.close();
-     m_playListModel->clear();
-     m_playlist->clear();
-     Init();
-     Player(numberList);
-    }else QMessageBox::information(this, "Ошибка", "Нельзя удалить выбранный плейлист!");
 }
 
 
